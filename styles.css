@@ -1,0 +1,282 @@
+/*
+Convencion del profesor
+1. Posicionamiento (fixed, relative,)
+2. Modelo de caja (margin, padding, width, height)
+3. Tipografia (medidas)
+4. Estilos visuales (shadow box, border radius etc)
+5. Miscellaneous/otros
+*/
+
+/*en :root vamos a estar declarando en variables todos los colores que vamos a estar reutilizando*/
+
+:root {
+    --bitcoin-orange: #F7931A;
+    --soft-orange: #FFE9D5;
+    --secondary-blue: #1A9AF7;
+    --soft-blue: #E7F5FF;
+    --warm-black: #201E1C;
+    --black: #282623;
+    --grey: #BABABA;
+    --off-white: #FAF8F7;
+    --just-white: #FFFFFF;
+}
+
+/*Selector universal para reiniciar margin y padding*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*seteamos a 62.5% el elemento padre/root html para usar la medida rem para las fuentes*/
+
+html {
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/*header*/
+
+/*arrancamos con Position*/
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-width: 320px;
+    height: 334px;
+    text-align: center;
+/*colocando linear-gradient*/
+    background: linear-gradient(207.8deg, #201E1C 16.69%, #F7931A 100%);;
+}
+
+/*usamos especificidad ya que no vamos a tener otra etiqueta img dentro del header*/
+header img {
+    width: 150px;
+    height: 24px;
+    margin-top: 60px;
+/* align-self es la manera de centrar elementos cuando usamos display flex en su contenedor*/
+    align-self: center;
+}
+
+/*va a estar ocupando siempre un width del 90% entre 288px a 900px*/
+.header--title-container {
+    width: 90%;
+    min-width: 288px;
+    max-width: 900px;
+    height: 218px;
+    margin-top: 40px;
+    text-align: center;
+    align-self: center;
+}
+
+.header--title-container h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+/*line-heigth es la altura de la fuente*/
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
+
+.header--title-container p {
+    margin-top: 25px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--soft-orange);
+}
+
+.header--title-container .header--button {
+/*Recordemos que cuando usamos position absolute podemos mover al elemento con top, right, left y down. Toma como position relative a su padre directo que seria el header en este caso y permite reposicionar en cualquier parte del header a pesar que existan más elementos*/
+    position: absolute;
+/*Alineando el botón. calc le estamos diciendo que vaya al centro con el 50% y le restamos los px para posicionarlo*/
+/*  left: calc(50% - 115px);*/
+/*Alineando el botón sin tener que sacar cálculos*/
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+/**/
+    top: 270px;
+    display: block;
+    margin-top: 35px;
+    padding: 15px;
+    width: 229px;
+    height: 48px;
+    background-color: var(--off-white);
+/*agregando sombra*/
+    box-shadow: 0px 4px 8px rgba(89, 73, 30, 0.16);
+/*quitamos algún border ya definido*/
+    border: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.header--button span {
+    display: inline-block;
+    width: 13px;
+    height: 8px;
+    margin-left: 10px;
+    background-image: url("./assets/icons/arrow-down.svg");
+}
+
+/*main*/
+
+main {
+    width: 100%;
+    height: auto;
+    background-color: var(--off-white);
+}
+
+.main-exchange-container {
+    width: 100%;
+    height: auto;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.main-exchange-container--title {
+    width: 90%;
+    min-width: 288px;
+    max-width: 900px;
+/*Posicionamos al centro siempre*/
+    margin: 0 auto;
+}
+
+.main-exchange-container .backgroundImg {
+    /*otorgando dimensiones*/
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background-image: url('./assets/imgs/bitcoin.svg');
+    /*asegurando que la imagen no se deforme*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-exchange-container h2 {
+    margin-bottom: 30px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--black);
+}
+
+.main-exchange-container p {
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    color: #757575;
+}
+
+/*Table*/
+
+.main-currency-table {
+    width: 70%;
+    min-width: 235px;
+    max-width: 500px;
+    height: 360px;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+}
+
+.main-currency-table .currency-table--title {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    color: var(--bitcoin-orange);
+}
+
+.currency-table--container {
+    width: 90%;
+    min-width: 230px;
+    max-width: 300px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.currency-table--container table {
+    width: 100%;
+    height: 100%;
+
+}
+
+.currency-table--container td {
+    width: 50%;
+    font-size: 1.6rem;
+    font-weight: 500px;
+    line-height: 1.9rem;
+    color: var(--grey);
+    background-color: var(--just-white);
+}
+
+/*redondeando esquinas de la table*/
+
+.currency-table--container .table__top-left {
+    border-radius: 15px 0 0 0;
+}
+.currency-table--container .table__top-right {
+    border-radius: 0 15px 0 0;
+}
+.currency-table--container .table__bottom-left {
+    border-radius: 0 0 0 15px;
+}
+.currency-table--container .table__bottom-right {
+    border-radius: 0 0 15px 0;
+}
+
+.currency-table--container .table__right {
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.7rem;
+    color: #757575;
+}
+
+/*agregando icons*/
+.currency-table--container .down {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url('./assets/icons/trending-down\ 1.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.currency-table--container .up {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url('./assets/icons/trending-up\ 1.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.currency-table--date {
+    width: 190px;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 8px;
+    background-color: var(--soft-orange);
+    border-radius: 8px;
+}
+
+.currency-table--date p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-weight: 300;
+    color: var(--warm-black);
+}
